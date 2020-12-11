@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.AHPU.mapper.StudentMapper">
+
+    <!--原理是重写接口类中的方法-->
+   <select id="getStudentList" resultType="com.AHPU.pojo.Student">
+        select * from data.student
+   </select>
+
+    <insert id="addStudent" parameterType="com.AHPU.pojo.Student">
+        insert into data.student( name, id, class, grade, sex, floornum, roomnum, tel, address) value(#{NAME},#{ID},#{CLASS},#{GRADE},#{SEX},#{FLOORNUM},#{ROOMNUM},#{TEL},#{ADDRESS})
+    </insert>
+
+    <update id="delStudent" parameterType="com.AHPU.pojo.Student">
+        delete from data.student where id = #{ID}
+    </update>
+   
+    <select id="searchStudent" resultType="com.AHPU.pojo.Student">
+        select * from data.student where id = #{ID}
+    </select>
+    <update id="alterStudent" parameterType="com.AHPU.pojo.Student">
+    
+    </update>
+</mapper>
